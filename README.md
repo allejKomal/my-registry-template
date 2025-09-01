@@ -21,3 +21,10 @@ This is a template for creating a custom registry using Next.js.
 ## Documentation
 
 Visit the [shadcn documentation](https://ui.shadcn.com/docs/registry) to view the full documentation.
+
+
+pnpm registry:build
+
+pnpm dev
+
+pnpm dlx shadcn@latest add https://alljkomal-registry.vercel.app/r/hello-world.json
