@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-context",
+  "type": "registry:hook",
+  "title": "Theme Context",
+  "description": "A simple theme context",
+  "files": [
+    {
+      "path": "registry/new-york/hooks/theme-context/theme-context.tsx",
+      "content": "import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';\n\n// Define types for the context\ntype Theme = 'light' | 'dark';\n\ninterface ThemeContextType {\n    theme: Theme;\n    toggleTheme: () => void;\n}\n\n// Default state for context\nconst defaultState: ThemeContextType = {\n    theme: 'light',\n    toggleTheme: () => { },  // Placeholder for toggle function\n};\n\n// Create context with default value\nconst ThemeContext = createContext<ThemeContextType>(defaultState);\n\n// Context Provider component\ninterface ThemeProviderProps {\n    children: ReactNode;\n}\n\nexport const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {\n    const [theme, setTheme] = useState<Theme>('light');\n\n    // Memoize the toggleTheme function to avoid unnecessary re-renders\n    const toggleTheme = useCallback(() => {\n        setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));\n    }, []);\n\n    return (\n        <ThemeContext.Provider value={{ theme, toggleTheme }}>\n            {children}\n        </ThemeContext.Provider>\n    );\n};\n\n// Custom hook to use the theme context in other components\nexport const useTheme = () => {\n    const context = useContext(ThemeContext);\n\n    // Throw an error if the hook is used outside of a provider\n    if (!context) {\n        throw new Error('useTheme must be used within a ThemeProvider');\n    }\n\n    return context;\n};\n",
+      "type": "registry:component"
+    }
+  ]
+}
