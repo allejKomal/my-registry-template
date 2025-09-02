@@ -1,9 +1,11 @@
+"use client"
+
 import React, { useEffect } from 'react';
 
-const ScrollBar: React.FC = () => {
-    useEffect(() => {
-        const style = document.createElement('style');
-        style.innerHTML = `
+export function ScrollBar() {
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
       body {
         --sb-track-color: var(--primary);
         --sb-thumb-color: var(--primary-foreground);
@@ -30,14 +32,12 @@ const ScrollBar: React.FC = () => {
         }
       }
     `;
-        document.head.appendChild(style);
+    document.head.appendChild(style);
 
-        return () => {
-            document.head.removeChild(style);
-        };
-    }, []);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
-    return null;
+  return <></>;
 };
-
-export default ScrollBar;
