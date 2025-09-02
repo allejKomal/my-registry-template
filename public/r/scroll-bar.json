@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-bar",
+  "type": "registry:component",
+  "title": "Scroll Bar",
+  "description": "A simple Scroll bar Component for styles scroll bar",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/blocks/scroll-bar/scroll-bar.tsx",
+      "content": "import React, { useEffect } from 'react';\n\nconst ScrollBar: React.FC = () => {\n    useEffect(() => {\n        const style = document.createElement('style');\n        style.innerHTML = `\n      body {\n        --sb-track-color: var(--primary);\n        --sb-thumb-color: var(--primary-foreground);\n        --sb-size: 2px;\n      }\n\n      body::-webkit-scrollbar {\n        width: var(--sb-size);\n      }\n\n      body::-webkit-scrollbar-track {\n        background: var(--sb-track-color);\n        border-radius: 5px;\n      }\n\n      body::-webkit-scrollbar-thumb {\n        background: var(--sb-thumb-color);\n        border-radius: 5px;\n      }\n\n      @supports not selector(::-webkit-scrollbar) {\n        body {\n          scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);\n        }\n      }\n    `;\n        document.head.appendChild(style);\n\n        return () => {\n            document.head.removeChild(style);\n        };\n    }, []);\n\n    return null;\n};\n\nexport default ScrollBar;\n",
+      "type": "registry:component"
+    }
+  ]
+}

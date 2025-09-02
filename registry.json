@@ -4,6 +4,19 @@
   "homepage": "https://acme.com",
   "items": [
     {
+      "name": "scroll-bar",
+      "type": "registry:component",
+      "title": "Scroll Bar",
+      "description": "A simple Scroll bar Component for styles scroll bar",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/scroll-bar/scroll-bar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "hello-world",
       "type": "registry:component",
       "title": "Hello World",
@@ -151,7 +164,7 @@
       "description": "A simple use boolean hook",
       "files": [
         {
-          "path": "registry/new-york/hooks/use-boolean/use-boolean.tsx",
+          "path": "registry/new-york/hooks/use-boolean/use-boolean.ts",
           "type": "registry:component"
         }
       ]
@@ -163,7 +176,7 @@
       "description": "A simple use toggle hook",
       "files": [
         {
-          "path": "registry/new-york/hooks/use-toggle/use-toggle.tsx",
+          "path": "registry/new-york/hooks/use-toggle/use-toggle.ts",
           "type": "registry:component"
         }
       ]
@@ -175,7 +188,7 @@
       "description": "A simple use document title hook",
       "files": [
         {
-          "path": "registry/new-york/hooks/use-document-title/use-document-title.tsx",
+          "path": "registry/new-york/hooks/use-document-title/use-document-title.ts",
           "type": "registry:component"
         }
       ]
